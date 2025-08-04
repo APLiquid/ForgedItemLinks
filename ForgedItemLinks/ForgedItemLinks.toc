@@ -1,0 +1,6 @@
+## Interface: 30400
+## Title: ForgedItemLinks
+## Notes: Adds coloured [Tags] after forged and Mythic items linked in chat.
+## Author: LiquidAP
+
+ForgedItemLinks.lua

@@ -1,7 +1,7 @@
 
 # ForgedItemLinks
 
-**ForgedItemLinks** is a lightweight Synastria addon that allows you to **add coloured [Tags] after linked forged and Mythic items in chat.**.
+**ForgedItemLinks** is a lightweight Synastria addon that allows you to **add coloured [Tags] after linked forged and Mythic items in chat.**
 
 ---
 

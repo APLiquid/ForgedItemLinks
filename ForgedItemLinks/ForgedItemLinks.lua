@@ -111,7 +111,8 @@ local function BuildNewLink(link, itemColor, tagColor, tag, position)
 end
 
 local function ProcessItemLink(link, foundColoredLinks)
-  local itemID = CustomExtractItemId(link)
+  --local itemID = CustomExtractItemId(link)
+  local itemID = tonumber(link:match("|Hitem:(%d+):"))
   local color = GetItemColorFromLink(link)
   local newlink = link
   if not foundColoredLinks then newlink = color .. newlink end

@@ -47,7 +47,12 @@ end)
 
 function GetForgeLevelFromLink(itemLink)
     if not itemLink then return FORGE_LEVEL_MAP.BASE end
-    local forgeValue = GetItemLinkTitanforge(itemLink)
+	local forgeValue
+	if GetItemLinkTitanforge then
+		forgeValue = GetItemLinkTitanforge(itemLink) or 0
+	else
+		forgeValue = (tonumber(itemLink:match(":(%d+):80|h%[")) or 0) /4096
+	end
         -- Validate against known values
     for _, v in pairs(FORGE_LEVEL_MAP) do
         if forgeValue == v then return forgeValue end
@@ -59,7 +64,6 @@ local function GetItemColorFromLink(itemLink)
     -- Try to extract color from existing colored link first
     local colorCode = itemLink:match("^(|c%x%x%x%x%x%x%x%x)")
     if colorCode then
-		--print("color found in link")
         return colorCode
     end
     
@@ -71,7 +75,6 @@ local function GetItemColorFromLink(itemLink)
             -- Extract color from the full colored link
             colorCode = fullItemLink:match("^(|c%x%x%x%x%x%x%x%x)")
             if colorCode then
-			    --print("color found in secondary link")
                 return colorCode
             end
         end
@@ -88,13 +91,11 @@ local function GetItemColorFromLink(itemLink)
                 [6] = "|cffe6cc80", -- Artifact (Light Orange)
                 [7] = "|cff00ccff", -- Heirloom (Light Blue)
             }
-			--print("color asigned by rarity")
             return rarityColors[itemRarity] or "|cffffffff"
         end
     end
     
     -- Ultimate fallback - white
-	--print("color not found")
     return "|cffffffff"
 end
 
@@ -111,12 +112,11 @@ local function BuildNewLink(link, itemColor, tagColor, tag, position)
 end
 
 local function ProcessItemLink(link, foundColoredLinks)
-  --local itemID = CustomExtractItemId(link)
   local itemID = tonumber(link:match("|Hitem:(%d+):"))
   local color = GetItemColorFromLink(link)
   local newlink = link
   if not foundColoredLinks then newlink = color .. newlink end
-  FILDB["LastLink"] = newlink
+  --FILDB["LastLink"] = newlink
   
   -- Check if mythic
   local itemTags1, itemTags2 = GetItemTagsCustom(itemID)
@@ -190,10 +190,9 @@ function CreateSettingsPanel()
 	
 	-- Change tracking variables
     local hasChanges = false
-    local firstOpen = true
     -- Function to mark that changes have been made
     local function MarkChanged()
-        if not firstOpen then hasChanges = true end
+        hasChanges = true 
     end
     
     -- Panel background
@@ -348,7 +347,6 @@ function CreateSettingsPanel()
 	
 	-- Auto-save when panel is hidden/closed
     settingsPanel:SetScript("OnHide", function()
-		firstOpen = false
         if hasChanges and hasChanges == true then
             -- Save all text field values
             FILDB["mythicText"] = mythicEditBox:GetText()

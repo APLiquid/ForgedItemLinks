@@ -1,14 +1,14 @@
 
 # ForgedItemLinks
 
-**ForgedItemLinks** is a lightweight Synastria addon that allows you to **add coloured [Tags] after linked forged and Mythic items in chat.**
+**ForgedItemLinks** is a lightweight Synastria addon that allows you to **add coloured [Tags] to linked forged and Mythic items in chat.**
 
 ---
 
 ## 🔧 Features
 
-- Automatically adds an M tag after Mythic items linked in chat.
-- Automatically adds TF, WF, and LF tags after Titanforged, Warforged and Lightforeged items linked in chat.
+- Automatically adds customizable tags to linked forged and Mythic items in chat.
+- Settings menu to change the text and position of the tags.
 
 ---
 
@@ -25,10 +25,23 @@
 
 ---
 
+## 💬 Slash Commands
+
+| Command | Description |
+|---------|-------------|
+| `/fil` | Opens the settings UI. |
+
+---
+
 ## 📸 Screenshots
 
- ![Lightforges](screenshots/LFS.PNG)
- ![Variety](screenshots/Others.PNG) 
+| Settings Panel | In-game Examples |
+|----------------|----------------|
+| ![Menu](screenshots/Settings.PNG) | ![Variety](screenshots/Others.PNG) |
+|  | ![Lightforges](screenshots/LFS.PNG)) |
+|  | ![Examples](screenshots/Waffle.PNG) |
+
+ 
 
 ---
 

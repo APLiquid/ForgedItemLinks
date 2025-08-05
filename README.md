@@ -37,9 +37,7 @@
 
 | Settings Panel | In-game Examples |
 |----------------|----------------|
-| ![Menu](screenshots/Settings.PNG) | ![Variety](screenshots/Others.PNG) |
-|  | ![Lightforges](screenshots/LFS.PNG)) |
-|  | ![Examples](screenshots/Waffle.PNG) |
+| ![Menu](screenshots/Settings.PNG) | ![Variety](screenshots/Others.PNG)  ![Lightforges](screenshots/LFS.PNG) ![Examples](screenshots/Waffle.PNG) |
 
  
 
